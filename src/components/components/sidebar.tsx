@@ -2,22 +2,27 @@
 
 import {
   Home,
-  Image,
   Video,
   MessageSquare,
   Bell,
   Info,
+  ImageUp,
 } from "lucide-react"
+import Image from "next/image"
+
 
 export function Sidebar() {
   return (
     <aside className="w-72 min-h-screen border-r bg-white p-4 space-y-4">
       {/* Profile photo */}
-      <img
-        src="reinier.jpg" // Replace with your real photo //test push
-        alt="Profile"
-        className="w-full h-auto rounded-lg shadow-lg border"
-      />
+      <Image
+  src="/reinier.jpg" // must start with `/` to reference the public folder
+  alt="Profile"
+  width={300}         // set fixed width
+  height={300}        // and height, or use layout="responsive" for flexibility
+  className="w-full h-auto rounded-lg shadow-lg border object-cover"
+/>
+
 
       {/* Sidebar links with icons */}
       <ul className="text-sm text-blue-700 space-y-2 pt-4">
@@ -25,7 +30,7 @@ export function Sidebar() {
           <Home size={18} /> Home
         </li>
         <li className="flex items-center gap-2 cursor-pointer hover:underline">
-          <Image size={18} /> View Photos
+          <ImageUp size={18} /> View Photos
         </li>
         <li className="flex items-center gap-2 cursor-pointer hover:underline">
           <Video size={18} /> View Videos
