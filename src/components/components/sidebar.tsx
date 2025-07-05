@@ -14,7 +14,7 @@ export function Sidebar() {
     <aside className="w-72 min-h-screen border-r bg-white p-4 space-y-4">
       {/* Profile photo */}
       <img
-        src="reinier.jpg" // Replace with your real photo
+        src="reinier.jpg" // Replace with your real photo //test push
         alt="Profile"
         className="w-full h-auto rounded-lg shadow-lg border"
       />
