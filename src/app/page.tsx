@@ -20,9 +20,6 @@ export default function Home() {
   const [posts, setPosts] = useState<Post[]>([])
   const [editingId, setEditingId] = useState<number | null>(null)
   const [editContent, setEditContent] = useState("")
-  const [imageFile, setImageFile] = useState<File | null>(null)
-
-
   useEffect(() => {
   async function fetchPosts() {
     const { data, error } = await supabase
@@ -45,20 +42,27 @@ export default function Home() {
   if (!content.trim() || content.length > 280) return
 
   const { data, error } = await supabase.from("posts").insert([
-    { name, content }
-  ])
+  { name, content }
+])
 
-  if (error) {
-    console.error("Failed to post:", error.message, error.details, error.hint)
-  } else {
-    setContent("")
-    const { data: updated } = await supabase
-      .from("posts")
-      .select("*")
-      .order("created_at", { ascending: false })
+if (error) {
+  console.error("Failed to post:", error.message, error.details, error.hint)
+  return
+}
 
-    setPosts(updated as Post[])
-  }
+if (data) {
+  console.log("Inserted:", data)
+}
+
+setContent("")
+
+const { data: updated } = await supabase
+  .from("posts")
+  .select("*")
+  .order("created_at", { ascending: false })
+
+setPosts(updated as Post[])
+
 }
   const handleDelete = async (id: number) => {
   const { error } = await supabase.from("posts").delete().eq("id", id)

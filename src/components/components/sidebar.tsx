@@ -8,27 +8,41 @@ import {
   Bell,
   Info,
 } from "lucide-react"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
 
 export function Sidebar() {
   return (
     <aside className="w-72 min-h-screen border-r bg-white p-4 space-y-4">
-      {/* Bigger profile photo placeholder */}
+      {/* Profile photo */}
       <img
-        src="reinier.jpg" // Replace this with your real photo later
+        src="reinier.jpg" // Replace with your real photo
         alt="Profile"
         className="w-full h-auto rounded-lg shadow-lg border"
       />
 
-      <ul className="text-sm text-blue-700 space-y-1 pt-2">
-        <li className="cursor-pointer hover:underline">View Photos</li>
-        <li className="cursor-pointer hover:underline">View Videos</li>
-        <li className="cursor-pointer hover:underline">Send Message</li>
-        <li className="cursor-pointer hover:underline">Poke</li>
+      {/* Sidebar links with icons */}
+      <ul className="text-sm text-blue-700 space-y-2 pt-4">
+        <li className="flex items-center gap-2 cursor-pointer hover:underline">
+          <Home size={18} /> Home
+        </li>
+        <li className="flex items-center gap-2 cursor-pointer hover:underline">
+          <Image size={18} /> View Photos
+        </li>
+        <li className="flex items-center gap-2 cursor-pointer hover:underline">
+          <Video size={18} /> View Videos
+        </li>
+        <li className="flex items-center gap-2 cursor-pointer hover:underline">
+          <MessageSquare size={18} /> Send Message
+        </li>
+        <li className="flex items-center gap-2 cursor-pointer hover:underline">
+          <Bell size={18} /> Poke
+        </li>
+        <li className="flex items-center gap-2 cursor-pointer hover:underline">
+          <Info size={18} /> Info
+        </li>
       </ul>
 
-      <div className="text-xs text-gray-600 pt-4 space-y-1">
+      {/* Info section */}
+      <div className="text-xs text-gray-600 pt-6 space-y-1">
         <p><strong>Networks:</strong> Facebook</p>
         <p><strong>Birthday:</strong> December 13, 1999</p>
         <p><strong>City:</strong> Metro Manila, PHL</p>
